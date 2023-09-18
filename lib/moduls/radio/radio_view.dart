@@ -4,13 +4,39 @@ class RadioView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "Radio Screen",
-        style: TextStyle(
-          fontWeight: FontWeight.w500,
-          fontSize: 50,
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("assets/images/radio_image.png"),
+          Text("اذاعة القرأن الكريم"),
+          SizedBox(
+            height: 90,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconTheme(
+                data: IconThemeData(size: 40, color: Color(0xffB7935F)),
+                child: Icon(Icons.skip_previous),
+              ),
+              SizedBox(
+                width: 70,
+              ),
+              IconTheme(
+                data: IconThemeData(size: 70, color: Color(0xffB7935F)),
+                child: Icon(Icons.play_arrow),
+              ),
+              SizedBox(
+                width: 70,
+              ),
+              IconTheme(
+                data: IconThemeData(size: 40, color: Color(0xffB7935F)),
+                child: Icon(Icons.skip_next),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
