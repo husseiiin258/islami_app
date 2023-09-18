@@ -69,7 +69,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
 
                   Expanded(
                     child: ListView.builder(
-                      itemCount: 2,
+                      itemCount: 1,
                   itemBuilder: (context, index) => Text(
                     content,
                     style: theme.textTheme.bodySmall,
