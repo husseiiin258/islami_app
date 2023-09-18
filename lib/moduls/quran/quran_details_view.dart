@@ -26,6 +26,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
       readFiles(args.suraNumber);
     }
     ;
+
     var mediaQuery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
     return Container(
