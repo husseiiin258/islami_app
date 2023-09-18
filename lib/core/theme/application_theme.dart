@@ -14,7 +14,7 @@ class ApplicationTheme {
         titleTextStyle: TextStyle(
             fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
       ),
-      bottomNavigationBarTheme:const BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xFFB7935F),
         selectedIconTheme: IconThemeData(
@@ -24,7 +24,7 @@ class ApplicationTheme {
         selectedItemColor: Colors.black,
         unselectedIconTheme: IconThemeData(color: Colors.white, size: 28),
         unselectedItemColor: Colors.white,
-      ) ,
+      ),
   textTheme: TextTheme(
     titleLarge: TextStyle(
         fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),

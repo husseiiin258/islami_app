@@ -21,16 +21,18 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
 
 
 
-    var args= ModalRoute.of(context)?.settings.arguments as SuraDetails ;
-    if(content.isEmpty)  readFiles(args.suraNumber);
+    var args = ModalRoute.of(context)?.settings.arguments as SuraDetails;
+    if (content.isEmpty) {
+      readFiles(args.suraNumber);
+    }
+    ;
     var mediaQuery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
     return Container(
-      decoration:const BoxDecoration(
+      decoration: const BoxDecoration(
           image: DecorationImage(
-              image:AssetImage("assets/images/background.png") ,
-              fit: BoxFit.cover)
-      ),
+              image: AssetImage("assets/images/background.png"),
+              fit: BoxFit.cover)),
       child: Scaffold(
         appBar: AppBar(
           title: Text("اسلامي"),
@@ -67,12 +69,13 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
 
                   Expanded(
                     child: ListView.builder(
-
-                        itemBuilder: (context , index) =>
-                            Text(
-                          content ,
-                        style: theme.textTheme.bodySmall,
-                        textAlign: TextAlign.center,),),
+                      itemCount: 1,
+                  itemBuilder: (context, index) => Text(
+                    content,
+                    style: theme.textTheme.bodySmall,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                   ),
                  
 
