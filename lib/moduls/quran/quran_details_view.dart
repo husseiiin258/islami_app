@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/moduls/quran/full_sura_details.dart';
 import 'package:islami/moduls/quran/quran_view.dart';
 
 class QuranDetailsView extends StatefulWidget {
@@ -12,20 +13,17 @@ class QuranDetailsView extends StatefulWidget {
 }
 
 class _QuranDetailsViewState extends State<QuranDetailsView> {
-  String content="";
+  String content = "";
+  static int counter = 1;
+
   List<String> allVerses = [];
 
   @override
   Widget build(BuildContext context) {
-
-
-
-
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetails;
-    if (content.isEmpty) {
-      readFiles(args.suraNumber);
+    if (allVerses.isEmpty) {
+      readFiles(args.index);
     }
-    ;
 
     var mediaQuery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
@@ -70,18 +68,12 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
 
                   Expanded(
                     child: ListView.builder(
-                      itemCount: 1,
-                  itemBuilder: (context, index) => Text(
-                    content,
-                    style: theme.textTheme.bodySmall,
-                    textAlign: TextAlign.center,
+                    itemCount: allVerses.length,
+                    itemBuilder: (context, index) {
+                      return FullSuraDetails(
+                          content: allVerses[index], index: index);
+                    }),
                   ),
-                ),
-                  ),
-                 
-
-
-
             ],
           ),
         ),
@@ -90,13 +82,12 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
     );
   }
 
-  readFiles( String index) async {
-   String text = await rootBundle.loadString("assets/files/$index.txt");
-   content = text ;
+  readFiles(int index) async {
+    String text = await rootBundle.loadString("assets/files/${index + 1}.txt");
+    List<String> lines = text.split("\n");
+    allVerses = lines;
 
-   setState(() {
-     //allVerses =content.split("\n");
-   });
-   print(text);
+    setState(() {});
+    print(allVerses[index]);
   }
 }
