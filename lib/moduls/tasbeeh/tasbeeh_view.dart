@@ -9,6 +9,10 @@ class TasbeehView extends StatefulWidget {
 
 class _TasbeehViewState extends State<TasbeehView> {
   int counter = 0;
+  double angle = 0;
+
+  List<String> tasbeeh = ["سبحان الله", "الحمدلله", "الله أكبر"];
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +21,28 @@ class _TasbeehViewState extends State<TasbeehView> {
         child: Column(
       children: [
         Stack(
+          alignment: Alignment.topCenter,
           children: [
             Center(
               child: Image.asset("assets/images/head_of_seb7a.png"),
             ),
             Container(
               margin: EdgeInsets.only(top: 75, bottom: 30),
-              child:
-                  Center(child: Image.asset("assets/images/body_of_seb7a.png")),
+              child: Transform.rotate(
+                  angle: angle,
+                  child: Theme(
+                    data: ThemeData(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                    ),
+                    child: InkWell(
+                        onTap: () {
+                          clickOnImage();
+                        },
+                        child: Center(
+                            child: Image.asset(
+                                "assets/images/body_of_seb7a.png"))),
+                  )),
             ),
           ],
         ),
@@ -41,26 +59,37 @@ class _TasbeehViewState extends State<TasbeehView> {
             color: Color(0xFFFB7935F),
             borderRadius: BorderRadius.circular(25),
           ),
-          child: Text("$counter"),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              counter = counter + 1;
-            });
-          },
           child: Text(
-            "تسبيح",
-            style: theme.textTheme.bodyMedium,
+            "$counter",
+            style: theme.textTheme.bodyLarge,
           ),
-          style: ElevatedButton.styleFrom(
-            primary: Color(0xFFFB7935F),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30.0),
-            ),
+        ),
+        Container(
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              color: theme.primaryColor,
+              borderRadius: BorderRadius.circular(10)),
+          width: 150,
+          child: Text(
+            "${tasbeeh[currentIndex]}",
+            style: theme.textTheme.bodyMedium,
           ),
         )
       ],
     ));
+  }
+
+  void clickOnImage() {
+    angle += 3;
+    if (counter == 30) {
+      counter = 0;
+      currentIndex++;
+      if (currentIndex > 2) {
+        currentIndex = 0;
+      }
+    }
+    counter++;
+
+    setState(() {});
   }
 }

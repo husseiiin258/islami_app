@@ -14,8 +14,6 @@ class QuranDetailsView extends StatefulWidget {
 
 class _QuranDetailsViewState extends State<QuranDetailsView> {
   String content = "";
-  static int counter = 1;
-
   List<String> allVerses = [];
 
   @override
@@ -34,7 +32,10 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
               fit: BoxFit.cover)),
       child: Scaffold(
         appBar: AppBar(
-          title: Text("اسلامي"),
+          title: Text(
+            "اسلامي",
+            style: theme.textTheme.titleLarge,
+          ),
         ),
         body: Container(
           margin: EdgeInsets.only(left: 30 , right: 30 , top: 30 , bottom: 120),
@@ -88,6 +89,5 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
     allVerses = lines;
 
     setState(() {});
-    print(allVerses[index]);
   }
 }

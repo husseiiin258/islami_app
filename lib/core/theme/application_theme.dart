@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ApplicationTheme {
   static ThemeData lightTheme = ThemeData(
-    primaryColor: const Color(0xFFB7935F),
+      primaryColor: Color(0xFFB7935F),
       scaffoldBackgroundColor: Colors.transparent,
       appBarTheme: const AppBarTheme(
-        iconTheme: IconThemeData(
-          color: Colors.black
-        ),
+        iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         backgroundColor: Colors.transparent,
         centerTitle: true,
@@ -26,16 +25,15 @@ class ApplicationTheme {
         unselectedItemColor: Colors.white,
       ),
   textTheme: TextTheme(
-    titleLarge: TextStyle(
-        fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
-    bodyLarge: TextStyle(
-        fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
-    bodyMedium: TextStyle(
-        fontSize: 25, fontWeight: FontWeight.w500, color: Colors.black),
-    bodySmall: TextStyle(
-        fontSize: 20, fontWeight: FontWeight.w400, color: Colors.black),
-
-  ));
+        titleLarge: GoogleFonts.elMessiri(
+            fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
+        bodyLarge: GoogleFonts.elMessiri(
+            fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
+        bodyMedium: GoogleFonts.elMessiri(
+            fontSize: 25, fontWeight: FontWeight.w500, color: Colors.black),
+        bodySmall: GoogleFonts.elMessiri(
+            fontSize: 20, fontWeight: FontWeight.w400, color: Colors.black),
+      ));
 
 
   static ThemeData darkTheme = ThemeData(

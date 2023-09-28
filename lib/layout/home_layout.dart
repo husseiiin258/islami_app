@@ -26,16 +26,20 @@ class _HomeLayoutState extends State<HomeLayout> {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return Container(
-      decoration:const BoxDecoration(
-        image: DecorationImage(image:AssetImage("assets/images/background.png") ,
-        fit: BoxFit.cover)
-      ),
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/background.png"),
+              fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           centerTitle: true,
-          title: const Text("اسلامي"),
+          title: Text(
+            "اسلامي",
+            style: theme.textTheme.titleLarge,
+          ),
         ),
         body: screens[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
@@ -43,7 +47,6 @@ class _HomeLayoutState extends State<HomeLayout> {
             setState(() {
               selectedIndex = index;
             });
-
           },
           currentIndex:selectedIndex ,
           items: const [

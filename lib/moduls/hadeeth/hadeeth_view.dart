@@ -70,7 +70,6 @@ class _HadeethViewState extends State<HadeethView> {
           HadeethContent(title: title, content: content);
       allHadeethContent.add(hadeethContent);
       setState(() {});
-      print(title);
     }
   }
 }
