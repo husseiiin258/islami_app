@@ -10,7 +10,6 @@ class TasbeehView extends StatefulWidget {
 class _TasbeehViewState extends State<TasbeehView> {
   int counter = 0;
   double angle = 0;
-
   List<String> tasbeeh = ["سبحان الله", "الحمدلله", "الله أكبر"];
   int currentIndex = 0;
 
