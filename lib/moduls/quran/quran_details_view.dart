@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/moduls/quran/full_sura_details.dart';
 import 'package:islami/moduls/quran/quran_view.dart';
 
@@ -33,7 +34,7 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "اسلامي",
+            AppLocalizations.of(context)!.app_title,
             style: theme.textTheme.titleLarge,
           ),
         ),

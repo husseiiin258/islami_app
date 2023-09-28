@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/moduls/hadeeth/hadeeth_view.dart';
 import 'package:islami/moduls/quran/quran_view.dart';
 import 'package:islami/moduls/radio/radio_view.dart';
@@ -37,7 +38,7 @@ class _HomeLayoutState extends State<HomeLayout> {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "اسلامي",
+            AppLocalizations.of(context)!.app_title,
             style: theme.textTheme.titleLarge,
           ),
         ),
@@ -49,22 +50,30 @@ class _HomeLayoutState extends State<HomeLayout> {
             });
           },
           currentIndex:selectedIndex ,
-          items: const [
-            BottomNavigationBarItem(icon:
-            ImageIcon(
-              AssetImage("assets/icons/quran.png"),
-            ), label: "quran"),
-            BottomNavigationBarItem(icon:  ImageIcon(
-              AssetImage("assets/icons/hadeth.png"),
-            ) , label: "Hadeeth"),
-            BottomNavigationBarItem(icon:  ImageIcon(
-              AssetImage("assets/icons/sebha.png"),
-            ) , label: "Tasbeeh"),
-            BottomNavigationBarItem(icon:  ImageIcon(
-              AssetImage("assets/icons/radio_blue.png"),
-            ) , label: "Radio"),
-
-            BottomNavigationBarItem(icon: Icon(Icons.settings) , label: "Settings"),
+          items: [
+            BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage("assets/icons/quran.png"),
+                ),
+                label: AppLocalizations.of(context)!.quran),
+            BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage("assets/icons/hadeth.png"),
+                ),
+                label: AppLocalizations.of(context)!.hadeth),
+            BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage("assets/icons/sebha.png"),
+                ),
+                label: AppLocalizations.of(context)!.sebha),
+            BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage("assets/icons/radio_blue.png"),
+                ),
+                label: AppLocalizations.of(context)!.radio),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: AppLocalizations.of(context)!.settings),
           ],
         ),
       ),
