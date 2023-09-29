@@ -21,7 +21,7 @@ class MyApplication extends StatelessWidget {
       darkTheme: ApplicationTheme.darkTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: Locale("ar"),
+      locale: Locale("en"),
       initialRoute: SplashScreen.routeName,
       routes: {
         SplashScreen.routeName: (context) => const SplashScreen(),
