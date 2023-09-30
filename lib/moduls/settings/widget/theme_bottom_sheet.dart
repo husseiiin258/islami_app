@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:islami/moduls/settings/widget/selected_option.dart';
-import 'package:islami/moduls/settings/widget/unselected_option.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/core/provider/application_provider.dart';
+import 'package:islami/moduls/settings/widget/selected_theme.dart';
+import 'package:islami/moduls/settings/widget/unselected_theme.dart';
+import 'package:provider/provider.dart';
 
 class ThemeBottomSheet extends StatelessWidget {
   const ThemeBottomSheet({super.key});
@@ -9,19 +12,35 @@ class ThemeBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
+    var appProvider = Provider.of<AppProvider>(context);
+    var locale = AppLocalizations.of(context)!;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       decoration: BoxDecoration(
-        color: theme.primaryColor.withOpacity(0.8),
+        color: theme.colorScheme.primary,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SelectedOption(selectedTitle: "Light"),
+          GestureDetector(
+              onTap: () {
+                appProvider.changeTheme(ThemeMode.dark);
+                Navigator.pop(context);
+              },
+              child: appProvider.isDark()
+                  ? SelectedTheme(selectedTitle: locale.dark)
+                  : UnSelectedTheme(unSelectedtitle: locale.dark)),
           SizedBox(
             height: 40,
           ),
-          UnSelectedOption(unSelectedtitle: "Dark")
+          GestureDetector(
+              onTap: () {
+                appProvider.changeTheme(ThemeMode.light);
+                Navigator.pop(context);
+              },
+              child: appProvider.isDark()
+                  ? UnSelectedTheme(unSelectedtitle: locale.light)
+                  : SelectedTheme(selectedTitle: locale.light))
         ],
       ),
     );

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/core/provider/application_provider.dart';
 import 'package:islami/moduls/quran/full_sura_details.dart';
 import 'package:islami/moduls/quran/quran_view.dart';
+import 'package:provider/provider.dart';
 
 class QuranDetailsView extends StatefulWidget {
   static const String routeName = "Quran_Details";
 
-   QuranDetailsView({super.key });
+  QuranDetailsView({super.key});
 
   @override
   State<QuranDetailsView> createState() => _QuranDetailsViewState();
@@ -26,12 +28,14 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
 
     var mediaQuery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
+    var appProvider = Provider.of<AppProvider>(context);
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/background.png"),
+              image: AssetImage(appProvider.backgroundImage()),
               fit: BoxFit.cover)),
       child: Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text(
             AppLocalizations.of(context)!.app_title,
@@ -39,12 +43,12 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
           ),
         ),
         body: Container(
-          margin: EdgeInsets.only(left: 30 , right: 30 , top: 30 , bottom: 120),
-          padding: EdgeInsets.symmetric(vertical: 20 , horizontal: 15),
+          margin: EdgeInsets.only(left: 30, right: 30, top: 30, bottom: 120),
+          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
           width: mediaQuery.width,
           height: mediaQuery.height,
           decoration: BoxDecoration(
-            color: Color(0xFFF8F8F8).withOpacity(0.8),
+            color: theme.colorScheme.onBackground.withOpacity(0.8),
             borderRadius: BorderRadius.circular(25),
           ),
           child: Column(
@@ -52,30 +56,36 @@ class _QuranDetailsViewState extends State<QuranDetailsView> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(" سورة ${args.suraName}", style:
-                    theme.textTheme.bodyLarge,),
+                  Text(
+                    " سورة ${args.suraName}",
+                    style: theme.textTheme.bodyLarge!
+                        .copyWith(color: theme.colorScheme.onSecondary),
+                  ),
                   SizedBox(
                     width: 15,
                   ),
-                  Icon(Icons.play_circle , size: 32 , color: Colors.black,)
+                  Icon(
+                    Icons.play_circle,
+                    size: 32,
+                    color: theme.colorScheme.onSecondary,
+                  )
                 ],
               ),
               Divider(
                 thickness: 1.2,
-                color: theme.primaryColor,
                 endIndent: 20,
                 indent: 20,
                 height: 25,
               ),
 
-                  Expanded(
-                    child: ListView.builder(
+              Expanded(
+                child: ListView.builder(
                     itemCount: allVerses.length,
                     itemBuilder: (context, index) {
                       return FullSuraDetails(
                           content: allVerses[index], index: index);
                     }),
-                  ),
+              ),
             ],
           ),
         ),

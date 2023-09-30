@@ -1,8 +1,12 @@
 {
-"app_title" : "Islami",
-"quran" : "Quran" ,
-"hadeth" : "Hadeth" ,
-"sebha" : "Sebha",
-"radio" : "Radio" ,
-"settings" : "Settings"
+  "app_title": "Islami",
+  "quran": "Quran",
+  "hadeth": "Hadeth",
+  "sebha": "Sebha",
+  "radio": "Radio",
+  "settings": "Settings",
+  "theme_mode": "Theme Mode",
+  "language": "Language",
+  "dark": "Dark",
+  "light": "Light"
 }

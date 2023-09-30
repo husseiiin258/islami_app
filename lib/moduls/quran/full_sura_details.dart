@@ -8,9 +8,13 @@ class FullSuraDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return Text(
       '$content{${index + 1}}',
-      style: Theme.of(context).textTheme.bodyMedium,
+      style: Theme.of(context)
+          .textTheme
+          .bodyMedium!
+          .copyWith(color: theme.colorScheme.onSecondary),
       textAlign: TextAlign.center,
       textDirection: TextDirection.rtl,
     );

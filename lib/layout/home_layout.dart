@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/core/provider/application_provider.dart';
 import 'package:islami/moduls/hadeeth/hadeeth_view.dart';
 import 'package:islami/moduls/quran/quran_view.dart';
 import 'package:islami/moduls/radio/radio_view.dart';
 import 'package:islami/moduls/settings/settings_view.dart';
 import 'package:islami/moduls/tasbeeh/tasbeeh_view.dart';
+import 'package:provider/provider.dart';
 
 class HomeLayout extends StatefulWidget {
   static const String routeName = "home_layout";
 
-   HomeLayout({super.key});
+  HomeLayout({super.key});
 
   @override
   State<HomeLayout> createState() => _HomeLayoutState();
@@ -28,10 +30,11 @@ class _HomeLayoutState extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var appProvider = Provider.of<AppProvider>(context);
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/background.png"),
+              image: AssetImage(appProvider.backgroundImage()),
               fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,

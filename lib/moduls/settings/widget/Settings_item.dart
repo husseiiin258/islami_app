@@ -34,10 +34,20 @@ class SettingsItems extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: theme.primaryColor, width: 1.5)),
+                border: Border.all(
+                    color: theme.colorScheme.onSecondaryContainer, width: 1.5)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text(selectedOption), Icon(Icons.arrow_drop_down)],
+              children: [
+                Text(
+                  selectedOption,
+                  style: theme.textTheme.bodyMedium,
+                ),
+                Icon(
+                  Icons.arrow_drop_down,
+                  color: theme.colorScheme.onSecondary,
+                )
+              ],
             ),
           ),
         ),

@@ -15,7 +15,7 @@ class SelectedOption extends StatelessWidget {
           borderRadius: BorderRadius.circular(12)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [Text("English"), Icon(Icons.check)],
+        children: [Text(selectedTitle), Icon(Icons.check)],
       ),
     );
   }

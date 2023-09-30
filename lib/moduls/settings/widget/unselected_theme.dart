@@ -7,6 +7,17 @@ class UnSelectedTheme extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(unSelectedtitle);
+    return Container(
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(12)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(unSelectedtitle),
+        ],
+      ),
+    );
   }
 }

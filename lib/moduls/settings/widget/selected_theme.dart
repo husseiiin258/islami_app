@@ -15,7 +15,7 @@ class SelectedTheme extends StatelessWidget {
           borderRadius: BorderRadius.circular(12)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [Text("Light"), Icon(Icons.check)],
+        children: [Text(selectedTitle), Icon(Icons.check)],
       ),
     );
   }

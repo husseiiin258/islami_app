@@ -22,7 +22,6 @@ class _HadeethViewState extends State<HadeethView> {
         Image.asset("assets/images/ahadeth_image.png"),
         Divider(
           thickness: 2.2,
-          color: theme.primaryColor,
           indent: 10,
           endIndent: 10,
           height: 5,
@@ -33,7 +32,6 @@ class _HadeethViewState extends State<HadeethView> {
         ),
         Divider(
           thickness: 2.2,
-          color: theme.primaryColor,
           indent: 10,
           endIndent: 10,
         ),
